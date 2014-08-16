@@ -1,4 +1,5 @@
 ActiveAdmin.register Letter do
+  permit_params :content, :status, :read_count, :thanks_count
 
 
   # See permitted parameters documentation:
