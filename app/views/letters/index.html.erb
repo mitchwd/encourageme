@@ -5,33 +5,21 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
       <th><%= model_class.human_attribute_name(:content) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= model_class.human_attribute_name(:read_count) %></th>
       <th><%= model_class.human_attribute_name(:thanks_count) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= model_class.human_attribute_name(:created) %></th>
     </tr>
   </thead>
   <tbody>
     <% @letters.each do |letter| %>
       <tr>
-        <td><%= letter.id %></td>
-        <td><%= letter.content %></td>
-        <td><%= letter.status %></td>
+        <td><%= link_to letter.content, letter %></td>
+        <td><%= letter.status.humanize %></td>
         <td><%= letter.read_count %></td>
         <td><%= letter.thanks_count %></td>
-        <td><%=l letter.created_at, format: :long %></td>
-        <td>
-          <%= link_to letter_path(letter), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-            <%= glyph 'info-sign' %>
-            <%= glyph 'pencil' %>
-          <%- end -%>
-          <%= link_to letter_path(letter), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-            <%= glyph 'remove' %>
-          <%- end -%>
-        </td>
+        <td><%= time_ago_in_words(letter.created_at) + ' ago' %></td>
       </tr>
     <% end %>
   </tbody>
