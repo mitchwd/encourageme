@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'pages/index'
 
-  resources :letters do
+  resources :letters, only: [:index, :show, :new, :create] do
     member do
       get :flag
     end

@@ -1,5 +1,5 @@
 class LettersController < ApplicationController
-  before_action :set_letter, only: [:show, :edit, :update, :destroy, :flag]
+  before_action :set_letter, only: [:show, :flag]
 
   # GET /letters
   # GET /letters.json
@@ -19,11 +19,6 @@ class LettersController < ApplicationController
     @statuses = Letter.statuses
   end
 
-  # GET /letters/1/edit
-  def edit
-    @statuses = Letter.statuses
-  end
-
   # POST /letters
   # POST /letters.json
   def create
@@ -37,30 +32,6 @@ class LettersController < ApplicationController
         format.html { render :new }
         format.json { render json: @letter.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /letters/1
-  # PATCH/PUT /letters/1.json
-  def update
-    respond_to do |format|
-      if @letter.update(letter_params)
-        format.html { redirect_to @letter, notice: 'Letter was successfully updated.' }
-        format.json { render :show, status: :ok, location: @letter }
-      else
-        format.html { render :edit }
-        format.json { render json: @letter.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /letters/1
-  # DELETE /letters/1.json
-  def destroy
-    @letter.destroy
-    respond_to do |format|
-      format.html { redirect_to letters_url, notice: 'Letter was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
