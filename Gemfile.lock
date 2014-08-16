@@ -1,4 +1,22 @@
 GIT
+  remote: git://github.com/twbs/bootstrap-sass.git
+  revision: 54317e5c02a4915e7a5def3a3e94cc2738a51ed3
+  specs:
+    bootstrap-sass (3.2.0.1)
+      sass (~> 3.2)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 6e95b66b544638178f1e9648369ec560594163ac
+  specs:
+    devise (3.3.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: b8e89c74788199d383963267f4735dccbf292f20
   specs:
@@ -14,24 +32,6 @@ GIT
       rails (>= 3.2, < 4.2)
       ransack (~> 1.0)
       sass-rails
-
-GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 6e95b66b544638178f1e9648369ec560594163ac
-  specs:
-    devise (3.3.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
-
-GIT
-  remote: git://github.com/twbs/bootstrap-sass.git
-  revision: 54317e5c02a4915e7a5def3a3e94cc2738a51ed3
-  specs:
-    bootstrap-sass (3.2.0.1)
-      sass (~> 3.2)
 
 GEM
   remote: https://rubygems.org/
