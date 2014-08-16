@@ -1,5 +1,5 @@
 class LettersController < ApplicationController
-  before_action :set_letter, only: [:show, :edit, :update, :destroy]
+  before_action :set_letter, only: [:show, :edit, :update, :destroy, :flag]
 
   # GET /letters
   # GET /letters.json
@@ -60,6 +60,16 @@ class LettersController < ApplicationController
     @letter.destroy
     respond_to do |format|
       format.html { redirect_to letters_url, notice: 'Letter was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # GET /letters/1/flag
+  # GET /letters/1/flag.json
+  def flag
+    @letter.flagged!
+    respond_to do |format|
+      format.html { redirect_to letters_url, notice: 'Letter was successfully flagged.' }
       format.json { head :no_content }
     end
   end

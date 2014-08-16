@@ -19,5 +19,7 @@
 <div class="form-group">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               letters_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.flag', :default => t("helpers.links.flag")),
+              flag_letter_path(@letter), :class => 'btn btn-danger'  %>
 </div>
 
