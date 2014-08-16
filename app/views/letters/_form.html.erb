@@ -8,19 +8,7 @@
   <div class="form-group">
     <%= f.label :status, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.select :status, options_for_select(@statuses.collect { |s| [s[0], s[0]] }, selected: @letter.status), {}, :class => 'text-field form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :read_count, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.number_field :read_count, :class => 'text-field form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :thanks_count, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.number_field :thanks_count, :class => 'text-field form-control' %>
+      <%= f.label @letter.status, :class => 'text-field form-control disabled' %>
     </div>
   </div>
 
