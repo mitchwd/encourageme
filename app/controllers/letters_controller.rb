@@ -10,6 +10,7 @@ class LettersController < ApplicationController
   # GET /letters/1
   # GET /letters/1.json
   def show
+    @letter.increment!(:read_count, 1)
   end
 
   # GET /letters/new
