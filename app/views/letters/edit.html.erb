@@ -1,6 +1,5 @@
-<h1>Editing letter</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @letter %> |
-<%= link_to 'Back', letters_path %>
+<%- model_class = Letter -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Letter %></h1>
+</div>
+<%= render :partial => 'form' %>

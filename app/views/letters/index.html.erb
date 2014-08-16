@@ -1,33 +1,42 @@
-<h1>Listing letters</h1>
-
-<table>
+<%- model_class = Letter -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Letter %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Content</th>
-      <th>Status</th>
-      <th>Read count</th>
-      <th>Thanks count</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:content) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:read_count) %></th>
+      <th><%= model_class.human_attribute_name(:thanks_count) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @letters.each do |letter| %>
       <tr>
+        <td><%= letter.id %></td>
         <td><%= letter.content %></td>
         <td><%= letter.status %></td>
         <td><%= letter.read_count %></td>
         <td><%= letter.thanks_count %></td>
-        <td><%= letter.user %></td>
-        <td><%= link_to 'Show', letter %></td>
-        <td><%= link_to 'Edit', edit_letter_path(letter) %></td>
-        <td><%= link_to 'Destroy', letter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l letter.created_at, format: :long %></td>
+        <td>
+          <%= link_to letter_path(letter), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to letter_path(letter), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Letter', new_letter_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_letter_path,
+            :class => 'btn btn-primary' %>
