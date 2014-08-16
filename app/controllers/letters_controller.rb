@@ -15,10 +15,12 @@ class LettersController < ApplicationController
   # GET /letters/new
   def new
     @letter = Letter.new
+    @statuses = Letter.statuses
   end
 
   # GET /letters/1/edit
   def edit
+    @statuses = Letter.statuses
   end
 
   # POST /letters
